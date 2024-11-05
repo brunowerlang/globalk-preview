@@ -34,29 +34,34 @@ export const navLinks = [
   },
 ];
 
+// constants.js
 export const features = [
   {
-    id: "feature-1",
-    icon: star,
-    title: "Rewards",
-    content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+    id: 'feature-1',
+    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: 'Step 1',
+    content: 'We take care of all the products that propagate your brand that are not produced by your company.',
   },
   {
-    id: "feature-2",
-    icon: shield,
-    title: "100% Secured",
-    content:
-      "We take proactive steps make sure your information and transactions are secure.",
+    id: 'feature-2',
+    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: 'Step 2',
+    content: 'We manage everything from product design to delivery to the end customer.',
   },
   {
-    id: "feature-3",
-    icon: send,
-    title: "Balance Transfer",
-    content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+    id: 'feature-3',
+    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: 'Step 3',
+    content: 'We are an important and best-structured One Stop Shop in Brazil.',
   },
-];
+  {
+    id: 'feature-4',
+    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: 'Step 4',
+    content: 'We develop customized products and projects and creative ways to promote your brand, according to the profile of each client, in all the necessary channels: corporate, employees, distributors, physical stores, and ecommerce.',
+  },
+]
+
 
 export const feedback = [
   {

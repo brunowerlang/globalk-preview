@@ -5,14 +5,16 @@
 @tailwind utilities;
 
 :root {
-  --black-gradient: linear-gradient(
+  --light-red-gradient: linear-gradient(
     144.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
+    rgba(255, 200, 200, 0.5) -278.56%, /* Light red with transparency */
+    rgba(255, 100, 100, 0.3) -78.47%,   /* Slightly darker light red */
+    rgba(255, 0, 0, 0.1) 91.61%         /* Very light red */
   );
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
+
+
 
 * {
   scroll-behavior: smooth;
@@ -21,13 +23,14 @@
 .text-gradient {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
-    #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
+    #fddcdc 0.89%,    /* tom mais claro de vermelho */
+    #fbb4b4 17.23%,   /* vermelho claro */
+    #f78b8b 42.04%,   /* vermelho médio */
+    #f36262 55.12%,   /* vermelho mais intenso */
+    #ee3939 71.54%,   /* vermelho escuro */
+    #c12323 100%      /* tom mais escuro de vermelho */
   );
+  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -35,14 +38,14 @@
 }
 
 .bg-blue-gradient {
-  background: linear-gradient(
-    157.81deg,
-    #def9fa -43.27%,
-    #bef3f5 -21.24%,
-    #9dedf0 12.19%,
-    #7de7eb 29.82%,
-    #5ce1e6 51.94%,
-    #33bbcf 90.29%
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #fddcdc 0.89%,    /* tom mais claro de vermelho */
+    #fbb4b4 17.23%,   /* vermelho claro */
+    #f78b8b 42.04%,   /* vermelho médio */
+    #f36262 55.12%,   /* vermelho mais intenso */
+    #ee3939 71.54%,   /* vermelho escuro */
+    #c12323 100%      /* tom mais escuro de vermelho */
   );
 }
 
@@ -108,7 +111,7 @@
 }
 
 .feature-card:hover {
-  background: var(--black-gradient);
+  background: var(  --light-red-gradient);
   box-shadow: var(--card-shadow);
 }
 
@@ -121,20 +124,20 @@
 }
 
 .feedback-card:hover {
-  background: var(--black-gradient);
+  background: var(--red-gradient);
 }
 
 .blue__gradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #e90000 100%);
   filter: blur(100px);
 }
 
 .pink__gradient {
-  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
-  filter: blur(200px);
+  background: linear-gradient(90deg,#e56767 0%, #e90000 100%);
+  filter: blur(150px);
 }
 
 .white__gradient {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   filter: blur(300px);
 }
