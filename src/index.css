@@ -134,10 +134,57 @@
 
 .pink__gradient {
   background: linear-gradient(90deg,#e56767 0%, #e90000 100%);
-  filter: blur(150px);
+  filter: blur(300px);
 }
 
 .white__gradient {
   background: rgba(0, 0, 0, 0.6);
   filter: blur(300px);
 }
+
+
+@keyframes bubble {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, -10px); /* Mover para a direita e para cima */
+  }
+  50% {
+    transform: translate(0, -20px); /* Levantar */
+  }
+  75% {
+    transform: translate(-10px, -10px); /* Mover para a esquerda e para cima */
+  }
+  100% {
+    transform: translate(0, 0); /* Voltar à posição original */
+  }
+}
+
+.animate-bubble {
+  animation: bubble 3s ease-in-out infinite; /* Animação de flutuação contínua */
+  transition: transform 0.3s ease-in-out; /* Suavizar ao pausar */
+}
+
+.animate-bubble:hover {
+  animation-play-state: paused; /* Pausa suavemente a animação ao passar o mouse */
+}
+
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+

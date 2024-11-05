@@ -21,16 +21,24 @@ export const navLinks = [
     title: "Home",
   },
   {
-    id: "features",
-    title: "Features",
+    id: "about",
+    title: "About",
   },
   {
-    id: "product",
-    title: "Product",
+    id: "howwedo",
+    title: "How We Do",
   },
   {
-    id: "clients",
-    title: "Clients",
+    id: "brands",
+    title: "Brands",
+  },
+  {
+    id: "partners",
+    title: "Partners",
+  },
+  {
+    id: "retailers",
+    title: "Retailers",
   },
 ];
 
@@ -38,26 +46,26 @@ export const navLinks = [
 export const features = [
   {
     id: 'feature-1',
-    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
-    title: 'Step 1',
+    icon: './src/assets/care.png', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: '',
     content: 'We take care of all the products that propagate your brand that are not produced by your company.',
   },
   {
     id: 'feature-2',
-    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
-    title: 'Step 2',
+    icon: './src/assets/manage.png', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: '',
     content: 'We manage everything from product design to delivery to the end customer.',
   },
   {
     id: 'feature-3',
-    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
-    title: 'Step 3',
+    icon: './src/assets/stop.png', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: '',
     content: 'We are an important and best-structured One Stop Shop in Brazil.',
   },
   {
     id: 'feature-4',
-    icon: 'Effective-sec-item-img', // Substitua por uma URL ou o caminho da imagem correspondente
-    title: 'Step 4',
+    icon: './src/assets/care.png', // Substitua por uma URL ou o caminho da imagem correspondente
+    title: '',
     content: 'We develop customized products and projects and creative ways to promote your brand, according to the profile of each client, in all the necessary channels: corporate, employees, distributors, physical stores, and ecommerce.',
   },
 ]
@@ -93,18 +101,18 @@ export const feedback = [
 export const stats = [
   {
     id: "stats-1",
-    title: "User Active",
-    value: "3800+",
+    title: "Headquarter in Sorocaba",
+    value: "99+",
   },
   {
     id: "stats-2",
-    title: "Trusted by Company",
-    value: "230+",
+    title: "Employes",
+    value: "41",
   },
   {
     id: "stats-3",
-    title: "Transaction",
-    value: "$230M+",
+    title: "Brazil and Miami Operation",
+    value: "$9M+",
   },
 ];
 

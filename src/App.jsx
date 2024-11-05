@@ -1,16 +1,16 @@
 import React from 'react'
 import { 
   Billing, 
-  Business, 
-  CardDeal, 
-  Clients, 
+  HowWeDo, 
+  About, 
+  Brands, 
   CTA, 
-  Feedback, 
+  Contact, 
   Footer, 
   Hero, 
   Navbar, 
   Stats, 
-  Testimonials 
+  Testimonials, 
 } from './components'
 import styles from './style'
 
@@ -32,15 +32,15 @@ const App = () => {
        
           <Stats/> 
 
-          <Clients/>
+          <Brands/>
 
-          <CardDeal/>
+          <About/>
 
-          <Business/>
+          <HowWeDo/>
           
           <CTA/>
 
-          <Feedback />
+          <Contact />
 
           <Footer/>     
         </div>

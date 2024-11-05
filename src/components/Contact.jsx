@@ -8,38 +8,76 @@ const ContactSection = () => {
     comments: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+    setIsSubmitting(true);
+    setResponseMessage('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '8ae7421f-5105-40aa-9b6d-b3961690c64a', // Replace with your Access Key
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.comments,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setResponseMessage('Email sent successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          comments: '',
+        });
+      } else {
+        setResponseMessage('Error sending email, please try again.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setResponseMessage('Error sending email, please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section className='flex justify-center items-center sm:my-16 my-6 sm:px-16 px-6 sm:py-12 py-4 sm:flex-row flex-col rounded-[20px] box-shadow'>
+    <section className='flex justify-center items-center sm:my-16 my-6 sm:px-16 px-6 sm:py-12 py-4 sm:flex-row flex-col rounded-[20px] box-shadow' id='contact'>
       <div className="form-main-con dots-left-img">
         <div className="container overlay-content">
-          <div className="form-title-con text-center wow slideInLeft" style={{ visibility: 'visible', animationName: 'slideInLeft' }}>
-            <h5 className='font-poppins text-gradient font-semibold xs:text-[48px] text-[40px] xs:leading-[76.8px] leading-[66.8px] w-full'>Contact us</h5>
-            <h2 className='font-poppins font-normal text-[18px] leading-[30.8px]'>Send us a Message</h2>
+          <div className="form-title-con text-center wow slideInLeft">
+            <h5 className='font-poppins text-gradient font-semibold xs:text-[48px] text-[40px] xs:leading-[76.8px] leading-[66.8px] w-full'>Contact Us</h5>
+            <h2 className='font-poppins font-normal text-[18px] leading-[30.8px]'>Send Us a Message</h2>
           </div>
-          <form className="form-inner-con wow slideInLeft" id="contactpage" method="post" onSubmit={handleSubmit} style={{ visibility: 'visible', animationName: 'slideInLeft' }}>
-            <div className="flex mb-3">
+          <form className="form-inner-con wow slideInLeft" id="contactpage" onSubmit={handleSubmit}>
+            <div className="row md:flex mb-3">
               <div className="col-lg-4 col-md-4 col-12 p-2">
                 <input
                   type="text"
                   placeholder="Name"
                   name="name"
-                  id="name"
                   value={formData.name}
                   onChange={handleChange}
+                  required
                   style={{
                     width: '100%',
-                    border: '1px solid red', // Changed border color to red
+                    border: '1px solid red',
                     background: 'transparent',
                     padding: '10px 24px',
                     borderRadius: '6px',
@@ -54,12 +92,12 @@ const ContactSection = () => {
                   type="email"
                   placeholder="Email"
                   name="email"
-                  id="email"
-                  value={formData.email} // Updated to value={formData.email}
+                  value={formData.email}
                   onChange={handleChange}
+                  required
                   style={{
                     width: '100%',
-                    border: '1px solid red', // Changed border color to red
+                    border: '1px solid red',
                     background: 'transparent',
                     padding: '10px 24px',
                     borderRadius: '6px',
@@ -74,12 +112,12 @@ const ContactSection = () => {
                   type="tel"
                   placeholder="Phone"
                   name="phone"
-                  id="phone"
-                  value={formData.phone} // Updated to value={formData.phone}
+                  value={formData.phone}
                   onChange={handleChange}
+                  required
                   style={{
                     width: '100%',
-                    border: '1px solid red', // Changed border color to red
+                    border: '1px solid red',
                     background: 'transparent',
                     padding: '10px 24px',
                     borderRadius: '6px',
@@ -97,12 +135,12 @@ const ContactSection = () => {
                   placeholder="Message"
                   rows="3"
                   name="comments"
-                  id="comments"
                   value={formData.comments}
                   onChange={handleChange}
+                  required
                   style={{
                     width: '100%',
-                    border: '1px solid red', // Changed border color to red
+                    border: '1px solid red',
                     background: 'transparent',
                     padding: '10px 24px',
                     borderRadius: '6px',
@@ -115,11 +153,21 @@ const ContactSection = () => {
             </div>
             <div className="row">
               <div className="col-lg-12 text-center">
-                <button type="submit" id="submit" className="contact-btn py-4 px-6 font-poppins font-medium text-[18px] text-primary outline-none border-2 border-red-500 rounded-[10px] mt-10 text-gradient">Submit</button>
-                
+                <button 
+                  type="submit" 
+                  className="contact-btn py-4 px-6 font-poppins font-medium text-[18px] text-primary outline-none border-2 border-red-500 rounded-[10px] mt-10 text-gradient"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit'}
+                </button>
               </div>
             </div>
           </form>
+          {responseMessage && (
+            <div className="response-message text-center mt-4">
+              <p>{responseMessage}</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { feedback } from '../constants'
 import styles from '../style'
-import Feedback from './Feedback'
+import Contact from './Contact'
 
 const Testimonials = () => {
   return (
@@ -15,9 +15,9 @@ const Testimonials = () => {
           </p>  
         </div>
       </div>
-      <div className='flex flex-wrap sm:justify-start justify-center w-full feedback-contrainer relative z-[1]'>
-        {feedback.map((card) => (
-          <Feedback key={card.id} {...card}/>        
+      <div className='flex flex-wrap sm:justify-start justify-center w-full Contact-contrainer relative z-[1]'>
+        {Contact.map((card) => (
+          <Contact key={card.id} {...card}/>        
         ))}
       </div>      
     </section>
